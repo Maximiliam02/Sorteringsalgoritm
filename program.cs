@@ -47,7 +47,7 @@ namespace sfdfwedfs
             {
                 Console.WriteLine(A[x]);
             }
-            Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
+            Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds + " Milisekunder");
         }
     }
 }
