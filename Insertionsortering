@@ -1,0 +1,29 @@
+using System;
+
+namespace Insertionsortering
+{
+    class Program
+    {
+        public void Main(int[] lista)
+        {
+            int i, a;
+            int length = lista.Length; if (length < 2) return;
+            int temp;
+
+            for(a=1; a<length; a++)
+            {
+                temp = lista[a];
+                i = a - 1;
+
+
+                while(i>=0 && lista[i] > temp)
+                {
+                    lista[i + 1] = lista[i];
+                    i--;
+
+                }
+                lista[i + 1] = temp;
+            }
+        }
+    }
+}
