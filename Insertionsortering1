@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Diagnostics;
 
 namespace Insertionsortering
 {
@@ -7,17 +9,27 @@ namespace Insertionsortering
         static void Main(string[] args)
         {
             int i, a;
-            int[] lista = new int [10];
+            int[] lista = new int[10];
             int length = lista.Length; if (length < 2) return;
             int temp;
+            Random Talet = new Random();
 
-            for(a=1; a<length; a++)
+            for (int j = 0; j < lista.Length; j++)
+            {
+                lista[j] = Talet.Next(lista.Length);
+
+            }
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            for (a = 1; a < length; a++)
             {
                 temp = lista[a];
                 i = a - 1;
 
 
-                while(i>=0 && lista[i] > temp)
+                while (i >= 0 && lista[i] > temp)
                 {
                     lista[i + 1] = lista[i];
                     i--;
@@ -25,6 +37,12 @@ namespace Insertionsortering
                 }
                 lista[i + 1] = temp;
             }
+
+            for (int x = 0; x < lista.Length; x++)
+            {
+                Console.WriteLine(lista[x]);
+            }
+            Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds + " Milisekunder");
         }
     }
 }
